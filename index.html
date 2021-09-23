@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
         integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
     <link href="assets/css/style.css">
+    <script src="assets/js/index.js"></script>
 </head>
 
 <header>
@@ -16,109 +17,120 @@
 
 <body>
 
-    <h2>Add New Task</h2>
+    <div>
 
-    <!-- Form -->
-    <h3>Task Name</h3>
-    <input class="form-control form-control-sm" type="text" placeholder="Task Name"><br>
+        <h2>Add New Task</h2>
 
-    <h3>Task Description</h3>
-    <form>
-        <div class="form-group">
-            <label for="exampleFormControlTextarea1"></label>
-            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+        <div class="alert alert-info" id="error" role="alert">
+            Oops!
         </div>
-    </form>
 
-    <h3>Assigned To</h3>
-    <input class="form-control form-control-sm" type="text" placeholder="Assigned To"><br>
+        <!-- Form -->
+        <h3>Task Name</h3>
 
-    <!-- Date Picker -->
-    <h3>Due Date</h3>
-        <!-- Special version of Bootstrap that only affects content wrapped in .bootstrap-iso -->
-        <link rel="stylesheet" href="https://formden.com/static/cdn/bootstrap-iso.css" />
+        <form id="myForm">
+            <input id="taskName" class="form-control form-control-sm" type="text" placeholder="Task Name"><br>
 
-        <!--Font Awesome (added because you use icons in your prepend/append)-->
-        <link rel="stylesheet" href="https://formden.com/static/cdn/font-awesome/4.4.0/css/font-awesome.min.css" />
+            <h3>Task Description</h3>
+            <form>
+                <div class="form-group">
+                    <label for="taskDescrip"></label>
+                    <textarea class="form-control" id="taskDescrip" rows="3"></textarea>
+                </div>
+            </form>
 
-        <!-- Inline CSS based on choices in "Settings" tab -->
-        <style>
-            .bootstrap-iso .formden_header h2,
-            .bootstrap-iso .formden_header p,
-            .bootstrap-iso form {
-                font-family: Arial, Helvetica, sans-serif;
-                color: black
-            }
+            <h3>Assigned To</h3>
+            <input class="form-control form-control-sm" id="assignedTo" type="text" placeholder="Assigned To"><br>
 
-            .bootstrap-iso form button,
-            .bootstrap-iso form button:hover {
-                color: white !important;
-            }
+            <!-- Date Picker -->
+            <h3>Due Date</h3>
+            <!-- Special version of Bootstrap that only affects content wrapped in .bootstrap-iso -->
+            <link rel="stylesheet" href="https://formden.com/static/cdn/bootstrap-iso.css" />
 
-            .asteriskField {
-                color: red;
-            }
-        </style>
+            <!--Font Awesome (added because you use icons in your prepend/append)-->
+            <link rel="stylesheet" href="https://formden.com/static/cdn/font-awesome/4.4.0/css/font-awesome.min.css" />
 
-        <!-- HTML Form (wrapped in a .bootstrap-iso div) -->
-        <div class="bootstrap-iso">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-md-6 col-sm-6 col-xs-12">
-                        <form method="post">
-                            <div class="form-group ">
-                                <label class="control-label " for="date">
-                                </label>
-                                <div class="input-group">
-                                    <div class="input-group-addon">
-                                        <i class="fa fa-calendar-plus-o">
-                                        </i>
+            <!-- Inline CSS based on choices in "Settings" tab -->
+            <style>
+                .bootstrap-iso .formden_header h2,
+                .bootstrap-iso .formden_header p,
+                .bootstrap-iso form {
+                    font-family: Arial, Helvetica, sans-serif;
+                    color: black
+                }
+
+                .bootstrap-iso form button,
+                .bootstrap-iso form button:hover {
+                    color: white !important;
+                }
+
+                .asteriskField {
+                    color: red;
+                }
+            </style>
+
+            <!-- HTML Form (wrapped in a .bootstrap-iso div) -->
+            <div class="bootstrap-iso">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            <form method="post">
+                                <div class="form-group ">
+                                    <label class="control-label " for="date">
+                                    </label>
+                                    <div class="input-group">
+                                        <div class="input-group-addon">
+                                            <i class="fa fa-calendar-plus-o">
+                                            </i>
+                                        </div>
+                                        <input class="form-control" id="datePicker" name="date" placeholder="MM/DD/YYYY"
+                                            type="text" />
                                     </div>
-                                    <input class="form-control" id="date" name="date" placeholder="MM/DD/YYYY"
-                                        type="text" />
                                 </div>
-                            </div>
-                            <div class="form-group">
-                                <div>
-                                    <!-- There's a button here idk if we need or not -->
+                                <div class="form-group">
+                                    <div>
+                                        <!-- There's a button here idk if we need or not
                                     <button class="btn btn-primary " name="submit" type="submit">
                                         Submit
-                                    </button>
+                                    </button> -->
+                                    </div>
                                 </div>
-                            </div>
-                        </form>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
 
 
-        <!-- Extra JavaScript/CSS added manually in "Settings" tab -->
-        <!-- Include jQuery -->
-        <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+            <!-- Extra JavaScript/CSS added manually in "Settings" tab -->
+            <!-- Include jQuery -->
+            <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
 
-        <!-- Include Date Range Picker -->
-        <script type="text/javascript"
-            src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
-        <link rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css" />
+            <!-- Include Date Range Picker -->
+            <script type="text/javascript"
+                src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
+            <link rel="stylesheet"
+                href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css" />
 
-        <script>
-            $(document).ready(function () {
-                var date_input = $('input[name="date"]'); //our date input has the name "date"
-                var container = $('.bootstrap-iso form').length > 0 ? $('.bootstrap-iso form').parent() : "body";
-                date_input.datepicker({
-                    format: 'mm/dd/yyyy',
-                    container: container,
-                    todayHighlight: true,
-                    autoclose: true,
+            <script>
+                $(document).ready(function () {
+                    var date_input = $('input[name="date"]'); //our date input has the name "date"
+                    var container = $('.bootstrap-iso form').length > 0 ? $('.bootstrap-iso form').parent() : "body";
+                    date_input.datepicker({
+                        format: 'mm/dd/yyyy',
+                        container: container,
+                        todayHighlight: true,
+                        autoclose: true,
+                    })
                 })
-            })
-        </script>
-
-    <!-- "Add Task" Button -->
-    <button type="button" class="btn btn-primary btn-sm">ADD TASK</button>
-    <br>
+            </script>
+            <div>
+                <!-- "Add Task" Button -->
+                <button type="submit" id="addTask" class="btn btn-primary btn-sm">ADD TASK</button>
+                <br>
+            </div>
+        </form>
+    </div>
 
     <!-- Task Card -->
     <div class="card w-50">
