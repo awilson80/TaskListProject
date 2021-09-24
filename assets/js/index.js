@@ -1,9 +1,15 @@
+const tasks = new TaskManager();
+
+
+// Testing HTML function
+// const taskHtml = createTaskHtml('Willis', 'Hello', 'Hi', 'Im creative', 'Today');
+// console.log(taskHtml);
+
 const addTaskButton = document.getElementById("addTaskButton");
 
-const task1 = new TaskManager('Lulu', 'I forgot', 'What is next', 'Dawg', 'now'); // placeholder
+const userInput = (e) => {
 
-const userInput = () => {
-
+    e.preventDefault();
     const newTaskNameInput = document.querySelector('#taskName');
     const taskName = newTaskNameInput.value;
     console.log("Task name: " + taskName);
@@ -19,14 +25,12 @@ const userInput = () => {
 
 
     const newDatePicker = document.querySelector('#datePicker');
-    const date = newDatePicker.value;
-    console.log("Date: " + date);
-
-    document.getElementById('myForm').reset();
+    const dueDate = newDatePicker.value;
+    console.log("Date: " + dueDate);
 
     let x = document.getElementById('error');
 
-    if (taskName === "") {
+    if (taskName === "" || description === "" || assigned === "" || dueDate === "") {
 
         x.style.display = 'block';
 
@@ -36,6 +40,12 @@ const userInput = () => {
         document.getElementById('myForm').reset();
 
     };
+
+    
+    tasks.addTask(taskName, description, assigned, dueDate);
+    tasks.render();
+    document.getElementById('myForm').reset();
+    console.log(tasks);
 
 };
 

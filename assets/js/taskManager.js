@@ -1,24 +1,72 @@
 class TaskManager {
 
-    constructor(currentId) {
+    constructor(tasks, currentId) {
 
         this._tasks = [];
-        currentId = this._currentId;
+        this._currentId = 0;
 
     }
 
-    addTask (taskName, description, assigned, date, status, id) {
+    addTask(taskName, description, assigned, dueDate, status = "TO-DO") {
 
         this.currentId++;
-        this._tasks.push(taskName, description, assigned, date, 'TODO', id);
+        const newTask = {
+            id: this._currentId,
+            taskName,
+            description,
+            assigned,
+            dueDate,
+            status
+        }
+        
+        this._tasks.push(newTask);
 
     }
 
+    render() {
+
+        const tasksHtmlList = [];
+
+        for (let task of this._tasks) {
+
+            console.log(task)
+            const taskHtml = createTaskHtml(task.taskName, task.description, task.assigned, task.dueDate, task.status);
+            tasksHtmlList.push(taskHtml);
+            const tasksHtml = tasksHtmlList.join('');
+            document.getElementById('taskCard').innerHTML = tasksHtml
+
+        }
+
+    };
+
+};
+
+
+const createTaskHtml = (taskName, description, assigned, dueDate, status) => {
+
+    const html = `
+
+    <li class="list-group-item ">
+                <div class="card" style="width: 18rem;">
+                    <div class="card-body">
+                        <div class="alignment">
+                            <h5 class="card-title" id="title">${taskName}</h5>
+                            <button type="button" class="btn btn-primary">Status</button>
+                        </div>
+                        <h6 class="card-subtitle mb-2 text-muted">${description}</h6>
+                        <p class="card-text">${assigned}</p>
+                        <p class="card-text">${dueDate}</p>
+                        <div class="alignment">
+                            <p class="card-text">${status}</p>
+                            <a href="#" class="btn btn-primary">Delete</a>
+                        </div>
+                    </div>
+                </div>
+            </li>
+
+    `
+
+    return html;
+
 }
-
-let task2 = new TaskManager();
-let task3 = new TaskManager();
-
-console.log(task1);
-console.log(task2);
 

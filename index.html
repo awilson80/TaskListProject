@@ -23,10 +23,6 @@
 
         <h2>Add New Task</h2>
 
-        <div class="alert alert-info fade" id="error" role="alert">
-            Oops!
-        </div>
-
         <!-- Form -->
         <h3>Task Name</h3>
 
@@ -37,7 +33,7 @@
             <form>
                 <div class="form-group">
                     <label for="taskDescrip"></label>
-                    <textarea class="form-control" id="taskDescrip" rows="3"></textarea>
+                    <textarea class="form-control" id="taskDescrip" rows="3" placeholder="Task Description"></textarea>
                 </div>
             </form>
 
@@ -128,27 +124,22 @@
             </script>
             <div>
                 <!-- "Add Task" Button -->
-                <button type="submit" id="addTaskButton" onclick="userInput()" class="btn btn-primary btn-sm"
+                <button type="submit" id="addTaskButton" onclick="userInput(event)" class="btn btn-primary btn-sm"
                     value="submit">ADD TASK</button>
                 <br>
             </div>
+            <br>
+            <div class="alert alert-info" id="error" role="alert">
+                Oops!
+            </div>
+            <br>
         </form>
-    </div>
 
-    <!-- Task Card
-    <div class="card w-50">
-        <div class="card-body">
-            <h5 class="card-title">Task</h5>
-            <ul class="list-group list-group-flush">
-                <li class="list-group-item">Task Name</li>
-                <li class="list-group-item">Task Description</li>
-                <li class="list-group-item">Assigned To</li>
-                <li class="list-group-item">Due Date</li>
-                <li class="list-group-item">Status</li>
-            </ul> -->
+    </div>
     <div>
+        <!-- HERE IS WHERE THE TASKS CARDS ARE -->
         <ul class="list-group">
-            <li class="list-group-item ">
+            <li class="list-group-item" id="taskCard">
                 <div class="card" style="width: 18rem;">
                     <div class="card-body">
                         <div class="alignment">
@@ -165,7 +156,7 @@
                     </div>
                 </div>
             </li>
-            <li class="list-group-item">
+            <!-- <li class="list-group-item">
                 <div class="card" style="width: 18rem;">
                     <div class="card-body">
                         <div class="alignment">
@@ -232,7 +223,7 @@
                         </div>
                     </div>
                 </div>
-            </li>
+            </li> -->
         </ul>
     </div>
     <!-- <a href="#" class="btn btn-primary">Status</a> -->
