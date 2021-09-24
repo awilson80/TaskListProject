@@ -1,4 +1,20 @@
 h1 {
-    font-size: 150px;
+
+    font-family: 'Space Mono', monospace;
+    font-size: 70px;
     font-weight: bold;
+
+}
+
+.alignment {
+
+    display: flex;
+    justify-content: space-between;
+    
+}
+
+.btn {
+
+    background-color: lightblue !important;
+
 }

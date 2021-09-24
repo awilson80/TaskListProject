@@ -5,8 +5,10 @@
     <!-- Bootstrap and CSS stylesheets -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
         integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-    <link href="assets/css/style.css">
-    <script src="assets/js/index.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@700&display=swap" rel="stylesheet">
+    <link href="./assets/css/style.css" rel="stylesheet">
+    <script src="./assets/js/taskManager.js"></script>
+    <script src="./assets/js/index.js"></script>
 </head>
 
 <header>
@@ -21,14 +23,14 @@
 
         <h2>Add New Task</h2>
 
-        <div class="alert alert-info" id="error" role="alert">
+        <div class="alert alert-info fade" id="error" role="alert">
             Oops!
         </div>
 
         <!-- Form -->
         <h3>Task Name</h3>
 
-        <form id="myForm">
+        <form id="myForm" onsubmit="userInput()">
             <input id="taskName" class="form-control form-control-sm" type="text" placeholder="Task Name"><br>
 
             <h3>Task Description</h3>
@@ -126,27 +128,114 @@
             </script>
             <div>
                 <!-- "Add Task" Button -->
-                <button type="submit" id="addTask" class="btn btn-primary btn-sm">ADD TASK</button>
+                <button type="submit" id="addTaskButton" onclick="userInput()" class="btn btn-primary btn-sm"
+                    value="submit">ADD TASK</button>
                 <br>
             </div>
         </form>
     </div>
 
-    <!-- Task Card -->
+    <!-- Task Card
     <div class="card w-50">
         <div class="card-body">
             <h5 class="card-title">Task</h5>
-            <!-- May need to change classes for these later? -->
             <ul class="list-group list-group-flush">
                 <li class="list-group-item">Task Name</li>
                 <li class="list-group-item">Task Description</li>
                 <li class="list-group-item">Assigned To</li>
                 <li class="list-group-item">Due Date</li>
                 <li class="list-group-item">Status</li>
-            </ul>
-            <a href="#" class="btn btn-primary">Status</a>
-        </div>
+            </ul> -->
+    <div>
+        <ul class="list-group">
+            <li class="list-group-item ">
+                <div class="card" style="width: 18rem;">
+                    <div class="card-body">
+                        <div class="alignment">
+                            <h5 class="card-title" id="title">Task Name</h5>
+                            <button type="button" class="btn btn-primary">Status</button>
+                        </div>
+                        <h6 class="card-subtitle mb-2 text-muted">Task Description</h6>
+                        <p class="card-text">Assigned Date: </p>
+                        <p class="card-text">Due Date: </p>
+                        <div class="alignment">
+                            <p class="card-text">Status </p>
+                            <a href="#" class="btn btn-primary">Delete</a>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li class="list-group-item">
+                <div class="card" style="width: 18rem;">
+                    <div class="card-body">
+                        <div class="alignment">
+                            <h5 class="card-title" id="title">Task Name</h5>
+                            <button type="button" class="btn btn-primary">Status</button>
+                        </div>
+                        <h6 class="card-subtitle mb-2 text-muted">Task Description</h6>
+                        <p class="card-text">Assigned Date: </p>
+                        <p class="card-text">Due Date: </p>
+                        <div class="alignment">
+                            <p class="card-text">Status </p>
+                            <a href="#" class="btn btn-primary">Delete</a>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li class="list-group-item">
+                <div class="card" style="width: 18rem;">
+                    <div class="card-body">
+                        <div class="alignment">
+                            <h5 class="card-title" id="title">Task Name</h5>
+                            <button type="button" class="btn btn-primary">Status</button>
+                        </div>
+                        <h6 class="card-subtitle mb-2 text-muted">Task Description</h6>
+                        <p class="card-text">Assigned Date: </p>
+                        <p class="card-text">Due Date: </p>
+                        <div class="alignment">
+                            <p class="card-text">Status </p>
+                            <a href="#" class="btn btn-primary">Delete</a>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li class="list-group-item">
+                <div class="card" style="width: 18rem;">
+                    <div class="card-body">
+                        <div class="alignment">
+                            <h5 class="card-title" id="name">Task Name</h5>
+                            <button type="button" class="btn btn-primary">Status</button>
+                        </div>
+                        <h6 class="card-subtitle mb-2 text-muted">Task Description</h6>
+                        <p class="card-text">Assigned Date: </p>
+                        <p class="card-text">Due Date: </p>
+                        <div class="alignment">
+                            <p class="card-text">Status </p>
+                            <a href="#" class="btn btn-primary">Delete</a>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li class="list-group-item">
+                <div class="card" style="width: 18rem;">
+                    <div class="card-body">
+                        <div class="alignment">
+                            <h5 class="card-title" id="name">Task Name</h5>
+                            <button type="button" class="btn btn-primary">Status</button>
+                        </div>
+                        <h6 class="card-subtitle mb-2 text-muted">Task Description</h6>
+                        <p class="card-text">Assigned Date: </p>
+                        <p class="card-text">Due Date: </p>
+                        <div class="alignment">
+                            <p class="card-text">Status </p>
+                            <a href="#" class="btn btn-primary">Delete</a>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        </ul>
     </div>
+    <!-- <a href="#" class="btn btn-primary">Status</a> -->
 
     <!-- Bootstrap Javascript -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
