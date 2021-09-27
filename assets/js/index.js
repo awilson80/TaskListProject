@@ -1,10 +1,5 @@
 const tasks = new TaskManager();
 
-
-// Testing HTML function
-// const taskHtml = createTaskHtml('Willis', 'Hello', 'Hi', 'Im creative', 'Today');
-// console.log(taskHtml);
-
 const addTaskButton = document.getElementById("addTaskButton");
 
 const userInput = (e) => {
@@ -49,4 +44,15 @@ const userInput = (e) => {
 
 };
 
-// addTaskButton.onclick = userInput();
+const tasksList = document.querySelector('.tasksList');
+
+
+tasksList.addEventListener('click', (event) => {
+
+    console.log('Got it')
+    if (event.target.classList.contains('done-button')) {
+
+        let parentTask = event.target.parentNode.parentNode.parentNode.parentNode
+        console.log(parentTask)
+    }
+});

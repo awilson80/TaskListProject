@@ -7,8 +7,6 @@
         integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@700&display=swap" rel="stylesheet">
     <link href="./assets/css/style.css" rel="stylesheet">
-    <script src="./assets/js/taskManager.js"></script>
-    <script src="./assets/js/index.js"></script>
 </head>
 
 <header>
@@ -138,13 +136,13 @@
     </div>
     <div>
         <!-- HERE IS WHERE THE TASKS CARDS ARE -->
-        <ul class="list-group">
+        <ul class="list-group tasksList">
             <li class="list-group-item" id="taskCard">
                 <div class="card" style="width: 18rem;">
                     <div class="card-body">
                         <div class="alignment">
                             <h5 class="card-title" id="title">Task Name</h5>
-                            <button type="button" class="btn btn-primary">Status</button>
+                            <button type="button" class="btn btn-primary done-button">Mark As Done</button>
                         </div>
                         <h6 class="card-subtitle mb-2 text-muted">Task Description</h6>
                         <p class="card-text">Assigned Date: </p>
@@ -228,6 +226,8 @@
     </div>
     <!-- <a href="#" class="btn btn-primary">Status</a> -->
 
+    <script src="./assets/js/taskManager.js"></script>
+    <script src="./assets/js/index.js"></script>
     <!-- Bootstrap Javascript -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
