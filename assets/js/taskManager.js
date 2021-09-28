@@ -1,13 +1,18 @@
 const createTaskHtml = (id, taskName, description, assigned, dueDate, status) => {
 
-    const html = `
+    let doneButtonVisibility = 'visible';
+    if (status === 'DONE') {
+        doneButtonVisibility = 'invisible';
+    };
 
-    <li class="list-group-item id="data-task-${id}">
+    return `
+
+    <li class="list-group-item" data-task-id = "${id}">
                 <div class="card" style="width: 18rem;">
-                    <div class="card-body">
+                    <div class="card-body" id="data-task-id">
                         <div class="alignment">
                             <h5 class="card-title" id="title">${taskName}</h5>
-                            <button type="button" class="btn btn-primary done-button">Mark As Done</button>
+                            <button type="button" class="btn btn-primary done-button ${doneButtonVisibility}">Mark As Done</button>
                         </div>
                         <h6 class="card-subtitle mb-2 text-muted">${description}</h6>
                         <p class="card-text">${assigned}</p>
@@ -22,23 +27,20 @@ const createTaskHtml = (id, taskName, description, assigned, dueDate, status) =>
 
     `
 
-    return html;
-
-}
+};
 
 
 class TaskManager {
 
     constructor(tasks, currentId) {
-
         this._tasks = [];
         this._currentId = 0;
-
     }
 
     addTask(taskName, description, assigned, dueDate, status = "TO-DO") {
 
         this._currentId++;
+
         const newTask = {
             id: this._currentId,
             taskName,
@@ -53,38 +55,30 @@ class TaskManager {
     }
 
     render() {
-
         const tasksHtmlList = [];
 
         for (let task of this._tasks) {
-
-            console.log(task)
             const taskHtml = createTaskHtml(task.id, task.taskName, task.description, task.assigned, task.dueDate, task.status);
             tasksHtmlList.push(taskHtml);
             const tasksHtml = tasksHtmlList.join('');
             document.getElementById('taskCard').innerHTML = tasksHtml
-
         }
 
     };
 
     getTaskById(taskId) {
-
         let foundTask;
 
-        for (let task of this._tasks) {
+        for(let i = 0; i < this._tasks.length; i++) {
+            let task = this._tasks[i];
 
-            if (task.id === taskId) {
-                
+            if(task.id === taskId) {
                 foundTask = task;
-
             }
-
         }
-
         return foundTask;
 
-    }
+    };
 
 };
 
