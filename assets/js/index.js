@@ -1,5 +1,8 @@
 const tasks = new TaskManager();
 
+tasks.load();
+tasks.render();
+
 const addTaskButton = document.getElementById("addTaskButton");
 
 const userInput = (e) => {
@@ -54,6 +57,7 @@ taskList.addEventListener('click', (event) => {
         }
 
         tasks.render();
+        tasks.save();
         
         // console.log(parentTask)
         // console.log(task)

@@ -35,7 +35,7 @@ class TaskManager {
     constructor(tasks, currentId) {
         this._tasks = [];
         this._currentId = 0;
-    }
+    };
 
     addTask(taskName, description, assigned, dueDate, status = "TO-DO") {
 
@@ -52,7 +52,7 @@ class TaskManager {
         
         this._tasks.push(newTask);
 
-    }
+    };
 
     render() {
         const tasksHtmlList = [];
@@ -80,6 +80,29 @@ class TaskManager {
 
     };
 
+    save() {
+
+        let tasksJson = JSON.stringify(this._tasks)
+        localStorage.setItem("task", tasksJson);
+
+        let currentId = JSON.stringify(this._currentId);
+        localStorage.setItem("currentid", currentId); // Check underscores
+
+    };
+
+    load() {
+
+        if (localStorage.getItem('task')) {
+            let tasksJson = localStorage.getItem('task');
+            this._tasks = JSON.parse(tasksJson);
+        } 
+
+        if(localStorage.getItem('currentId')) {
+            let currentId = localStorage.getItem('currentId');
+            this._currentId = parseInt(currentId);
+        }
+
+    };
 };
 
 
