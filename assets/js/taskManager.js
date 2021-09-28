@@ -5,25 +5,34 @@ const createTaskHtml = (id, taskName, description, assigned, dueDate, status) =>
         doneButtonVisibility = 'invisible';
     };
 
+    let pillColor = 'btn-secondary';
+    if (status === 'ToDo') {
+        pillColor = 'btn-warning';
+    } else {
+        pillColor = 'btn-success';
+    }
+
     return `
 
     <li class="list-group-item" data-task-id = "${id}">
-                <div class="card" style="width: 18rem;">
-                    <div class="card-body" id="data-task-id">
-                        <div class="alignment">
-                            <h5 class="card-title" id="title">${taskName}</h5>
-                            <button type="button" class="btn btn-primary done-button ${doneButtonVisibility}">Mark As Done</button>
-                        </div>
-                        <h6 class="card-subtitle mb-2 text-muted">${description}</h6>
-                        <p class="card-text">${assigned}</p>
-                        <p class="card-text">${dueDate}</p>
-                        <div class="alignment">
-                            <p class="card-text">${status}</p>
-                            <a href="#" class="btn btn-primary">Delete</a>
-                        </div>
+	  <div class="card" style="width: 18rem;">
+		<div class="card-body" id="data-task-id">
+		  <div class="alignment">
+		    <h5 class="card-title" id="title">Task Name: ${taskName}</h5>
+			<button type="button" class="btn btn-secondary done-button ${doneButtonVisibility}">Mark as done</button>
+			    </div>
+                    <h6 class="card-subtitle mb-2 text-muted">Task Description: ${description}</h6>
+                    <p class="card-text">Assigned Date: ${assigned}</p>
+                    <p class="card-text">Due Date: ${dueDate}</p>
+                    <div class="alignment">
+                    <span class="badge badge-pill ${pillColor} pull-right" id="green-status">Status: ${status}</span>
+                    <div class="move">
+                        <button type="button" class="btn btn-primary delete-button">Delete</button>
                     </div>
                 </div>
-            </li>
+            </div>
+        </div>
+    </li>
 
     `
 
@@ -49,7 +58,7 @@ class TaskManager {
             dueDate,
             status
         }
-        
+
         this._tasks.push(newTask);
 
     };
@@ -69,10 +78,10 @@ class TaskManager {
     getTaskById(taskId) {
         let foundTask;
 
-        for(let i = 0; i < this._tasks.length; i++) {
+        for (let i = 0; i < this._tasks.length; i++) {
             let task = this._tasks[i];
 
-            if(task.id === taskId) {
+            if (task.id === taskId) {
                 foundTask = task;
             }
         }
@@ -95,14 +104,37 @@ class TaskManager {
         if (localStorage.getItem('task')) {
             let tasksJson = localStorage.getItem('task');
             this._tasks = JSON.parse(tasksJson);
-        } 
+        }
 
-        if(localStorage.getItem('currentId')) {
+        if (localStorage.getItem('currentId')) {
             let currentId = localStorage.getItem('currentId');
             this._currentId = parseInt(currentId);
         }
 
     };
+
+    deleteTask(taskId) {
+        let newTasks = [];
+
+        // for (let task of this._tasks) {
+
+        //     if (task.id !== taskId) {
+        //         newTasks.push(taskId)
+        //         newTasks = this._tasks
+        //     }
+        // }
+
+        for (let i = 0; i < this._tasks.length; i++) {
+            let task = this._tasks[i];
+
+            if (task.id !== taskId) {
+                newTasks.push(task)
+                // this._tasks = newTasks;
+            };
+        };
+
+        this._tasks = newTasks; // uncomment this to have a less buggy experience lol
+    }
 };
 
 

@@ -29,8 +29,10 @@ const userInput = (e) => {
     
     tasks.addTask(taskName, description, assigned, dueDate);
     tasks.render();
+    tasks.save();
+
+
     document.getElementById('myForm').reset();
-    console.log(tasks);
 
 };
 
@@ -43,7 +45,6 @@ taskList.addEventListener('click', (event) => {
 
         let parentTask = event.target.parentNode.parentNode.parentNode.parentNode;
         let taskId = parseInt(parentTask.getAttribute("data-task-id")); // parentTask or tasksList?
-        // console.log(taskId);
         let task = tasks.getTaskById(taskId);
         
 
@@ -59,9 +60,18 @@ taskList.addEventListener('click', (event) => {
         tasks.render();
         tasks.save();
         
-        // console.log(parentTask)
-        // console.log(task)
-        
+    }
+
+
+    if (event.target.classList.contains("delete-button")) {
+        console.log('hello');
+        let parentTask = event.target.parentNode.parentNode.parentNode.parentNode.parentNode;
+        console.log(parentTask);
+        let taskId = parseInt(parentTask.getAttribute("data-task-id"));
+        tasks.deleteTask(taskId);
+        tasks.save();
+        tasks.render();
+
     }
 
     // Error alert stuff 
