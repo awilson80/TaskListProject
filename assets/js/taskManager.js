@@ -14,7 +14,7 @@ const createTaskHtml = (id, taskName, description, assigned, dueDate, status) =>
 		    <h5 class="card-title" id="title">Task Name: ${taskName}</h5>
 			<button type="button" class="btn btn-success done-button ${doneButtonVisibility}">Mark as done</button>
 			    </div>
-                    <h6 class="card-subtitle mb-2 text-muted">Task Description: ${description}</h6>
+                    <p class="card-text">Task Description: ${description}</p>
                     <p class="card-text">Assigned To: ${assigned}</p>
                     <p class="card-text">Due Date: ${dueDate}</p>
                     <div class="alignment">
@@ -63,7 +63,7 @@ class TaskManager {
             const taskHtml = createTaskHtml(task.id, task.taskName, task.description, task.assigned, task.dueDate, task.status);
             tasksHtmlList.push(taskHtml);
             const tasksHtml = tasksHtmlList.join('');
-            document.getElementById('taskCard').innerHTML = tasksHtml
+            document.getElementById('tasksList').innerHTML = tasksHtml
         }
 
     };
@@ -119,6 +119,7 @@ class TaskManager {
         };
 
         this._tasks = newTasks; // uncomment this to have a less buggy experience lol
+        document.getElementById('tasksList').innerHTML = '';
     };
 };
 

@@ -35,7 +35,7 @@ const userInput = (e) => {
 
 };
 
-const taskList = document.querySelector('.tasksList');
+const taskList = document.querySelector('#tasksList');
 
 
 taskList.addEventListener('click', (event) => {
