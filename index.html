@@ -66,7 +66,7 @@
             <!-- HTML Form (wrapped in a .bootstrap-iso div) -->
             <div class="bootstrap-iso">
                 <div class="container-fluid">
-                    <div class="row">
+                    <div class="row datePickerArea">
                         <div class="col-md-6 col-sm-6 col-xs-12">
                             <form method="post">
                                 <div class="form-group ">
@@ -82,12 +82,6 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <div>
-                                        <!-- There's a button here idk if we need or not
-                                    <button class="btn btn-primary " name="submit" type="submit">
-                                        Submit
-                                    </button> -->
-                                    </div>
                                 </div>
                             </form>
                         </div>
@@ -118,36 +112,38 @@
                     })
                 })
             </script>
+
+
             <div>
                 <!-- "Add Task" Button -->
-                <button type="submit" id="addTaskButton" onclick="userInput(event)" class="btn btn-primary btn-sm"
+                <button type="submit" id="addTaskButton" onclick="userInput(event)" class="btn btn-success btn-sm"
                     value="submit">ADD TASK</button>
                 <br>
             </div>
             <br>
-            <div class="alert alert-info" id="error" role="alert">
-                Oops!
+            <div class="alert alert-light invisible" id="error" role="alert">
+                Please fill out all fields!
             </div>
             <br>
         </form>
 
     </div>
-    <div>
+    <div id="appear" class="">
         <!-- HERE IS WHERE THE TASKS CARDS ARE -->
         <ul class="list-group tasksList">
             <li class="list-group-item" id="taskCard">
                 <div class="card" style="width: 18rem;">
                     <div class="card-body">
                         <div class="alignment">
-                            <h5 class="card-title" id="title">Task Name</h5>
-                            <button type="button" class="btn btn-primary done-button">Mark As Done</button>
+                            <h5 class="card-title" id="title">Task Name: </h5>
+                            <button type="button" class="btn btn-success done-button">Mark As Done</button>
                         </div>
-                        <h6 class="card-subtitle mb-2 text-muted">Task Description</h6>
+                        <h6 class="card-subtitle mb-2 text-muted">Task Description: </h6>
                         <p class="card-text">Assigned Date: </p>
                         <p class="card-text">Due Date: </p>
                         <div class="alignment">
-                            <p class="card-text">Status </p>
-                            <button type="button" class="btn btn-primary">Delete</button>
+                            <p class="card-text">Status: </p>
+                            <button type="button" class="btn btn-success">Delete</button>
                         </div>
                     </div>
                 </div>
@@ -157,14 +153,14 @@
                     <div class="card-body">
                         <div class="alignment">
                             <h5 class="card-title" id="title">Task Name</h5>
-                            <button type="button" class="btn btn-primary">Status</button>
+                            <button type="button" class="btn btn-success">Status</button>
                         </div>
                         <h6 class="card-subtitle mb-2 text-muted">Task Description</h6>
                         <p class="card-text">Assigned Date: </p>
                         <p class="card-text">Due Date: </p>
                         <div class="alignment">
                             <p class="card-text">Status </p>
-                            <a href="#" class="btn btn-primary">Delete</a>
+                            <a href="#" class="btn btn-success">Delete</a>
                         </div>
                     </div>
                 </div>
@@ -174,14 +170,14 @@
                     <div class="card-body">
                         <div class="alignment">
                             <h5 class="card-title" id="title">Task Name</h5>
-                            <button type="button" class="btn btn-primary">Status</button>
+                            <button type="button" class="btn btn-success">Status</button>
                         </div>
                         <h6 class="card-subtitle mb-2 text-muted">Task Description</h6>
                         <p class="card-text">Assigned Date: </p>
                         <p class="card-text">Due Date: </p>
                         <div class="alignment">
                             <p class="card-text">Status </p>
-                            <a href="#" class="btn btn-primary">Delete</a>
+                            <a href="#" class="btn btn-success">Delete</a>
                         </div>
                     </div>
                 </div>
@@ -191,14 +187,14 @@
                     <div class="card-body">
                         <div class="alignment">
                             <h5 class="card-title" id="name">Task Name</h5>
-                            <button type="button" class="btn btn-primary">Status</button>
+                            <button type="button" class="btn btn-success">Status</button>
                         </div>
                         <h6 class="card-subtitle mb-2 text-muted">Task Description</h6>
                         <p class="card-text">Assigned Date: </p>
                         <p class="card-text">Due Date: </p>
                         <div class="alignment">
                             <p class="card-text">Status </p>
-                            <a href="#" class="btn btn-primary">Delete</a>
+                            <a href="#" class="btn btn-success">Delete</a>
                         </div>
                     </div>
                 </div>
@@ -208,21 +204,21 @@
                     <div class="card-body">
                         <div class="alignment">
                             <h5 class="card-title" id="name">Task Name</h5>
-                            <button type="button" class="btn btn-primary">Status</button>
+                            <button type="button" class="btn btn-success">Status</button>
                         </div>
                         <h6 class="card-subtitle mb-2 text-muted">Task Description</h6>
                         <p class="card-text">Assigned Date: </p>
                         <p class="card-text">Due Date: </p>
                         <div class="alignment">
                             <p class="card-text">Status </p>
-                            <a href="#" class="btn btn-primary">Delete</a>
+                            <a href="#" class="btn btn-success">Delete</a>
                         </div>
                     </div>
                 </div>
             </li> -->
         </ul>
     </div>
-    <!-- <a href="#" class="btn btn-primary">Status</a> -->
+    <!-- <a href="#" class="btn btn-success">Status</a> -->
 
     <script src="./assets/js/taskManager.js"></script>
     <script src="./assets/js/index.js"></script>

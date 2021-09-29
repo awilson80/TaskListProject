@@ -1,9 +1,37 @@
+body {
+
+    background-color: #95F9E3;
+
+}
+
 h1 {
 
+    background-color: #775d58e8;
     text-align: center;
     font-family: 'Space Mono', monospace;
     font-size: 70px;
     font-weight: bold;
+
+}
+
+h2,
+h3 {
+
+    margin-left: 5px;
+
+}
+
+#taskCard {
+
+    background-color: mediumaquamarine;
+
+}
+
+/* area around the date picker input */
+.datePickerArea {
+
+    background-color: #95F9E3; 
+    margin-left: 0;
 
 }
 
@@ -14,14 +42,41 @@ h1 {
     
 }
 
+.form-control-sm {
+
+    max-width: 50%;
+    margin-left: 5px;
+
+}
+
+textarea {
+
+    max-width: 50%;
+    margin-left: 5px;
+
+}
+
+#addTaskButton {
+
+    margin-left: 5px;
+
+}
+
 .btn {
 
-    background-color: lightblue !important;
+    background-color: #49D49D !important;
 
 }
 
 #error {
 
-    max-width: 80px;
+    max-width: 150px;
+
+}
+
+/* color around the task cards */
+.colorblock {
+
+    background-color: #775d58e8;
 
 }

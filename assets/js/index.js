@@ -1,4 +1,9 @@
 const tasks = new TaskManager();
+const newTaskNameInput = document.querySelector('#taskName');
+const newTaskDescripInput = document.querySelector('#taskDescrip');
+const newAssignedToInput = document.querySelector('#assignedTo');
+const newDatePicker = document.querySelector('#datePicker');
+const x = document.getElementById('error');
 
 tasks.load();
 tasks.render();
@@ -6,31 +11,25 @@ tasks.render();
 const addTaskButton = document.getElementById("addTaskButton");
 
 const userInput = (e) => {
-
     e.preventDefault();
-    const newTaskNameInput = document.querySelector('#taskName');
-    const taskName = newTaskNameInput.value;
-    console.log("Task name: " + taskName);
-
-    const newTaskDescripInput = document.querySelector('#taskDescrip');
-    const description = newTaskDescripInput.value;
-    console.log("Task description: " + description);
-
-
-    const newAssignedToInput = document.querySelector('#assignedTo');
-    const assigned = newAssignedToInput.value;
-    console.log("Assigned To: " + assigned);
-
-
-    const newDatePicker = document.querySelector('#datePicker');
-    const dueDate = newDatePicker.value;
-    console.log("Date: " + dueDate);
-
     
-    tasks.addTask(taskName, description, assigned, dueDate);
-    tasks.render();
-    tasks.save();
+    const taskName = newTaskNameInput.value;
+    const description = newTaskDescripInput.value;
+    const assigned = newAssignedToInput.value;
+    const dueDate = newDatePicker.value;
 
+    if (taskName === "" || description === "" || assigned === "" || dueDate === "") {
+        x.classList.remove('invisible');
+        x.classList.add('visible');
+        document.getElementById('myForm').reset();
+    } 
+    
+    else {
+        x.classList.add('invisible');
+        tasks.addTask(taskName, description, assigned, dueDate);
+        tasks.render();
+        tasks.save();
+    };
 
     document.getElementById('myForm').reset();
 
@@ -48,9 +47,9 @@ taskList.addEventListener('click', (event) => {
         let task = tasks.getTaskById(taskId);
         
 
-        task.status = "DONE";
+        task.status = "Done";
         
-        if (task.status === 'DONE') {
+        if (task.status === 'Done') {
 
             event.target.classList.remove('visible');
             event.target.classList.add('invisible');
@@ -73,24 +72,6 @@ taskList.addEventListener('click', (event) => {
         tasks.render();
 
     }
-
-    // Error alert stuff 
-
-    const newTaskNameInput = document.querySelector('#taskName'); // Move these into global later lol
-    const newTaskDescripInput = document.querySelector('#taskDescrip');
-    const newAssignedToInput = document.querySelector('#assignedTo');
-    const newDatePicker = document.querySelector('#datePicker');
-
-    let x = document.getElementById('error');
-
-    if (newTaskNameInput.input === "" || newTaskDescripInput.input === "" || newAssignedToInput.input === "" || newDatePicker.input === "") {
-        x.style.display = 'block';
-    } 
-    
-    else {
-        x.style.display = 'none';
-        document.getElementById('myForm').reset();
-    };
 
 });
 

@@ -1,33 +1,26 @@
 const createTaskHtml = (id, taskName, description, assigned, dueDate, status) => {
 
     let doneButtonVisibility = 'visible';
-    if (status === 'DONE') {
+    if (status === 'Done') {
         doneButtonVisibility = 'invisible';
     };
 
-    let pillColor = 'btn-secondary';
-    if (status === 'ToDo') {
-        pillColor = 'btn-warning';
-    } else {
-        pillColor = 'btn-success';
-    }
-
     return `
 
-    <li class="list-group-item" data-task-id = "${id}">
+    <li class="list-group-item colorblock" data-task-id = "${id}">
 	  <div class="card" style="width: 18rem;">
 		<div class="card-body" id="data-task-id">
 		  <div class="alignment">
 		    <h5 class="card-title" id="title">Task Name: ${taskName}</h5>
-			<button type="button" class="btn btn-secondary done-button ${doneButtonVisibility}">Mark as done</button>
+			<button type="button" class="btn btn-success done-button ${doneButtonVisibility}">Mark as done</button>
 			    </div>
                     <h6 class="card-subtitle mb-2 text-muted">Task Description: ${description}</h6>
-                    <p class="card-text">Assigned Date: ${assigned}</p>
+                    <p class="card-text">Assigned To: ${assigned}</p>
                     <p class="card-text">Due Date: ${dueDate}</p>
                     <div class="alignment">
-                    <span class="badge badge-pill ${pillColor} pull-right" id="green-status">Status: ${status}</span>
+                    <p class="card-text">Status: ${status}</p>
                     <div class="move">
-                        <button type="button" class="btn btn-primary delete-button">Delete</button>
+                        <button type="button" class="btn btn-success delete-button">Delete</button>
                     </div>
                 </div>
             </div>
@@ -46,7 +39,7 @@ class TaskManager {
         this._currentId = 0;
     };
 
-    addTask(taskName, description, assigned, dueDate, status = "TO-DO") {
+    addTask(taskName, description, assigned, dueDate, status = "To-do") {
 
         this._currentId++;
 
@@ -94,7 +87,7 @@ class TaskManager {
         let tasksJson = JSON.stringify(this._tasks)
         localStorage.setItem("task", tasksJson);
 
-        let currentId = JSON.stringify(this._currentId);
+        let currentId = this._currentId.toString();
         localStorage.setItem("currentid", currentId); // Check underscores
 
     };
@@ -116,14 +109,6 @@ class TaskManager {
     deleteTask(taskId) {
         let newTasks = [];
 
-        // for (let task of this._tasks) {
-
-        //     if (task.id !== taskId) {
-        //         newTasks.push(taskId)
-        //         newTasks = this._tasks
-        //     }
-        // }
-
         for (let i = 0; i < this._tasks.length; i++) {
             let task = this._tasks[i];
 
@@ -134,7 +119,7 @@ class TaskManager {
         };
 
         this._tasks = newTasks; // uncomment this to have a less buggy experience lol
-    }
+    };
 };
 
 
