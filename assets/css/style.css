@@ -43,8 +43,7 @@ h3 {
 
 /* The color around the task cards */
 .taskCard {
-
-    /* background-color: mediumaquamarine; */
+    
     border: none !important;
     background-color: #775d58e8;
 
@@ -115,10 +114,17 @@ h3 {
 
 @media screen and (max-width: 576px) {
 
+    h1 {
+
+        font-size: 3.5em;
+        padding-bottom: 10px;
+    }
+
     .taskCard {
 
         display: flex;
         justify-content: center;
     
     }
+
 }
