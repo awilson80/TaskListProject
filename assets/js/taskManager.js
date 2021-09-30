@@ -5,6 +5,13 @@ const createTaskHtml = (id, taskName, description, assigned, dueDate, status) =>
         doneButtonVisibility = 'invisible';
     };
 
+    let badgeColor = 'secondary';
+    if (status === 'To-do') {
+        badgeColor = 'warning';
+    } else {
+        badgeColor = 'success';
+    }
+
     return `
 
     <li class="list-group-item taskCard" data-task-id = "${id}">
@@ -18,7 +25,7 @@ const createTaskHtml = (id, taskName, description, assigned, dueDate, status) =>
                     <p class="card-text">Assigned To: ${assigned}</p>
                     <p class="card-text">Due Date: ${dueDate}</p>
                     <div class="alignment">
-                    <p class="card-text">Status: ${status}</p>
+                    <p class="badge badge-${badgeColor} pull-right" id="status-badge">Status: ${status}</p>
                     <div class="move">
                         <button type="button" class="btn btn-success delete-button">Delete</button>
                     </div>
