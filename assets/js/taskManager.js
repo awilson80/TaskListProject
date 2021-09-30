@@ -7,7 +7,7 @@ const createTaskHtml = (id, taskName, description, assigned, dueDate, status) =>
 
     return `
 
-    <li class="list-group-item colorblock" data-task-id = "${id}">
+    <li class="list-group-item taskCard" data-task-id = "${id}">
 	  <div class="card" style="width: 18rem;">
 		<div class="card-body" id="data-task-id">
 		  <div class="alignment">
@@ -88,7 +88,7 @@ class TaskManager {
         localStorage.setItem("task", tasksJson);
 
         let currentId = this._currentId.toString();
-        localStorage.setItem("currentid", currentId); // Check underscores
+        localStorage.setItem("currentid", currentId);
 
     };
 
@@ -114,13 +114,10 @@ class TaskManager {
 
             if (task.id !== taskId) {
                 newTasks.push(task)
-                // this._tasks = newTasks;
             };
         };
-
-        this._tasks = newTasks; // uncomment this to have a less buggy experience lol
-        document.getElementById('tasksList').innerHTML = '';
+        this._tasks = newTasks;
     };
 };
 
-
+exports.TaskManager = TaskManager;

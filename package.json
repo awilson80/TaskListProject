@@ -1,0 +1,26 @@
+{
+  "name": "TaskListProject",
+  "version": "1.0.0",
+  "description": "Generation JWD Project - Team 2",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/awilson80/TaskListProject.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/awilson80/TaskListProject/issues"
+  },
+  "homepage": "https://github.com/awilson80/TaskListProject#readme",
+  "devDependencies": {
+    "mocha": "^9.1.2"
+  },
+  "dependencies": {
+    "chai": "^4.3.4"
+  }
+}

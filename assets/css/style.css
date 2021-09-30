@@ -29,9 +29,12 @@ h3 {
 
 }
 
-#taskCard {
+/* The color around the task cards */
+.taskCard {
 
-    background-color: mediumaquamarine;
+    /* background-color: mediumaquamarine; */
+    border: none !important;
+    background-color: #775d58e8;
 
 }
 
@@ -90,9 +93,14 @@ h3 {
 
 }
 
-/* color around the task cards */
-.colorblock {
+#footer {
 
-    background-color: #775d58e8;
+    position: fixed;
+    bottom: 0;
+    background-color: mediumaquamarine;
+    font-family: 'Montserrat', sans-serif;
+    width: 100%;
+    height: 5%;
+    text-align: center;
 
 }
