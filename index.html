@@ -19,27 +19,45 @@
 
 <body>
 
-    <div>
+    <div class="flex-container">
 
         <h2>Add New Task</h2><br>
 
         <!-- Form -->
-        <h3>Task Name</h3>
-
         <form id="myForm" onsubmit="userInput(event)">
-            <input id="taskName" class="form-control form-control-sm" type="text" placeholder="Task Name"><br>
 
-            <h3>Task Description</h3>
-                <div class="form-group">
-                    <label for="taskDescrip"></label>
-                    <textarea class="form-control" id="taskDescrip" rows="3" placeholder="Task Description"></textarea>
+            <div class="container-fluid">
+                <div class="row datePickerArea">
+                    <div class="col-md-6 col-sm-6 col-xs-6">
+                        <h3>Task Name</h3>
+                        <input id="taskName" class="form-control form-control-sm" type="text" placeholder="Task Name"><br>
+                    </div>
                 </div>
+            </div>
+            
+            <div class="container-fluid">
+                <div class="row datePickerArea">
+                    <div class="col-md-6 col-sm-6 col-xs-6">
+                        <h3>Task Description</h3>
+                        <div class="form-group">
+                            <label for="taskDescrip"></label>
+                            <textarea class="form-control" id="taskDescrip" rows="4.5" placeholder="Task Description"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-            <h3>Assigned To</h3>
-            <input class="form-control form-control-sm" id="assignedTo" type="text" placeholder="Assigned To"><br>
+            <div class="container-fluid">
+                <div class="row datePickerArea">
+                    <div class="col-md-6 col-sm-6 col-xs-6">
+                        <h3>Assigned To</h3>
+                        <input class="form-control form-control-sm" id="assignedTo" type="text" placeholder="Assigned To"><br>
+                    </div>
+                </div>
+            </div>
 
             <!-- Date Picker -->
-            <h3>Due Date</h3>
+            <h3 id="dateTitle">Due Date</h3>
             <!-- Special version of Bootstrap that only affects content wrapped in .bootstrap-iso -->
             <link rel="stylesheet" href="https://formden.com/static/cdn/bootstrap-iso.css" />
 
@@ -67,9 +85,9 @@
 
             <!-- HTML Form (wrapped in a .bootstrap-iso div) -->
             <div class="bootstrap-iso">
-                <div class="container-fluid">
-                    <div class="row datePickerArea">
-                        <div class="col-md-6 col-sm-6 col-xs-12">
+                    <div id="datePickerArea">
+                        <div class="col-md-6 col-sm-6 col-xs-6">
+                            
                             <form method="post">
                                 <div class="form-group ">
                                     <label class="control-label " for="date">
@@ -88,9 +106,7 @@
                             </form>
                         </div>
                     </div>
-                </div>
             </div>
-
 
             <!-- Extra JavaScript/CSS added manually in "Settings" tab -->
             <!-- Include jQuery -->
@@ -114,19 +130,25 @@
                     })
                 })
             </script>
+        </div>
+        <br>
+        <br>
+        <br>
 
-
-            <div>
                 <!-- "Add Task" Button -->
                 <button type="submit" id="addTaskButton" onclick="userInput(event)" class="btn btn-success btn-sm"
                     value="submit">ADD TASK</button>
                 <br>
-            </div>
+            <!-- </div> -->
             <br>
-            <div class="alert alert-light invisible" id="error" role="alert">
+            <!-- The error is a flex item, but may not need to be. Double check this! -->
+            <div class="alert alert-light invisible" id="error" role="alert"> 
                 Please fill out all fields!
             </div>
             <br>
+
+            
+
         </form>
 
     </div>
@@ -135,13 +157,6 @@
         <ul class="list-group" id="tasksList">
         </ul>
     </div>
-
-    <footer id="footer">
-        <p>Made with <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart-fill" viewBox="0 0 16 16">
-            <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
-          </svg> by Alyssa, Willis, Jennet, and Anthony T.</p>
-    </footer>
-    <!-- <a href="#" class="btn btn-success">Status</a> -->
 
     <script src="./assets/js/taskManager.js"></script>
     <script src="./assets/js/index.js"></script>
@@ -160,6 +175,12 @@
         src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
     <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css" />
+
+        <footer id="footer">
+            <p>Made with <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart-fill" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
+              </svg> by Alyssa, Willis, Jennet, and Anthony T.</p>
+        </footer>
 </body>
 
 </html>
