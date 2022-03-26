@@ -34,21 +34,16 @@ describe('Task manager methods', () => {
     });
 
     describe('getTaskById', () => {
-        it('should return the current task ID', () => {
+        it('should get a task based on the id', () => {
             // Set up
             const task = new TaskManager();
+            task.addTask('Go outside', 'Go outside and play', 'Lulu', '12/25/12', 'To-do');
 
             // Exercise
-            const result = task.addTask('Go outside', 'Go outside and play', 'Lulu', '12/25/12', 'To-do');
-            const resultId = task.getTaskById(1);
-
-            const compare = task.addTask('Go outside', 'Go outside and play', 'Lulu', '12/25/12', 'To-do');
-            const compareId = task.getTaskById(2);
-
+            const testTask = task.getTaskById(1);
 
             // Verify
-            assert.ok(resultId, compareId);
-
+            assert.ok(testTask.id == 1);
         });
 
     });
